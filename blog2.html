@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>障害年金、何から始めればいい？〜申請前に整理しておくべき7つのこと〜 | みのり 障害年金申請サポート</title>
+<meta name="description" content="「障害年金を申請したいけど、何から始めればいいかわからない」そんな方へ。元公務員・手帳3級・複数の病気をお持ちの方との実際の相談をもとに、申請前に整理すべきことをわかりやすく解説します。">
+<style>
+  :root {
+    --green: #4a7c59;
+    --green-light: #6a9c79;
+    --green-pale: #e8f4ec;
+    --text: #333;
+    --text-light: #666;
+    --bg: #fafaf8;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    background: white;
+    border-bottom: 1px solid #e0e0d8;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    gap: 12px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .nav-logo .icon {
+    width: 32px;
+    height: 32px;
+    background: var(--green);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .nav-back {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--green);
+  }
+
+  .blog-hero {
+    background: linear-gradient(135deg, #e8f4ec 0%, #f5f0e8 100%);
+    padding: 48px 20px 40px;
+  }
+
+  .blog-hero-inner { max-width: 800px; margin: 0 auto; }
+
+  .blog-category {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .blog-hero h1 {
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .blog-meta {
+    font-size: 13px;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 20px;
+  }
+
+  .blog-content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 40px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid var(--green);
+  }
+
+  .blog-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 28px 0 12px;
+  }
+
+  .blog-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .blog-content ul, .blog-content ol {
+    margin: 0 0 20px 24px;
+  }
+
+  .blog-content li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .consultation-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 24px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--green);
+  }
+
+  .consultation-box .label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .consultation-box p {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 0;
+    line-height: 1.8;
+  }
+
+  .point-box {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 28px 0;
+  }
+
+  .point-box .point-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-box ul, .point-box ol {
+    margin: 0 0 0 20px;
+  }
+
+  .point-box li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+
+  .highlight {
+    background: linear-gradient(transparent 60%, #ffd70080 60%);
+    font-weight: 700;
+  }
+
+  .caution {
+    background: #fff8e6;
+    border: 1px solid #f0c040;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #7a5c00;
+    line-height: 1.8;
+  }
+
+  .info-box {
+    background: #eef6ff;
+    border: 1px solid #b0d0f0;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #1a4a7a;
+    line-height: 1.8;
+  }
+
+  /* ステップボックス */
+  .step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .step-num {
+    background: var(--green);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .step-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #e8e8e0;
+    margin: 40px 0;
+  }
+
+  .blog-cta {
+    background: var(--green);
+    color: white;
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 0;
+  }
+
+  .blog-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .blog-cta p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
+
+  .btn-white {
+    display: inline-block;
+    background: white;
+    color: var(--green);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .btn-white:hover { opacity: 0.9; text-decoration: none; }
+
+  footer {
+    background: #2d3b32;
+    color: #ccc;
+    padding: 32px 20px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 64px;
+  }
+
+  footer a { color: #aaa; }
+
+  @media (max-width: 600px) {
+    .blog-content { padding: 32px 16px; }
+    .blog-hero { padding: 32px 16px; }
+    .blog-content h2 { font-size: 18px; }
+    .step-item { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="icon">み</div>
+      <span>みのり 障害年金申請サポート</span>
+    </div>
+    <a href="https://mizuirobin0805-minori.github.io/minori-support/" class="nav-back">← トップへ戻る</a>
+  </div>
+</header>
+
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="blog-category">申請の始め方</span>
+    <h1>障害年金、何から始めればいい？<br>〜申請前に整理しておくべきこと〜</h1>
+    <div class="blog-meta">
+      <span>📅 2026年3月</span>
+      <span>✍️ みのり</span>
+      <span>⏱️ 読了目安：6分</span>
+    </div>
+  </div>
+</div>
+
+<div class="blog-content">
+
+  <p>「障害年金を申請したいけど、何から始めればいいかわからない」——そんな方からのご相談はとても多いです。今回は、実際の相談事例をもとに、<span class="highlight">申請前に整理しておくべきこと</span>をわかりやすくお伝えします。</p>
+
+  <hr class="divider">
+
+  <h2>こんな状況からのご相談でした</h2>
+
+  <p>今回ご紹介するのは、以下のような状況の方からのご相談です。</p>
+
+  <div class="consultation-box">
+    <div class="label">ご相談者の状況</div>
+    <p>
+      ・障害者手帳3級（抗うつ病）取得済み<br>
+      ・精神科初診から約2年経過<br>
+      ・元公務員で、病気休職中に退職<br>
+      ・退職後は国民年金に変更<br>
+      ・他にも狭心症・腰椎分離すべり症・排尿障害あり<br>
+      ・日常生活に波があり「できる日」と「できない日」がある<br>
+      ・傷病手当金の未請求期間がある<br>
+      ・入退院を繰り返している状態
+    </p>
+  </div>
+
+  <p>「いま何をすべきか、アドバイスをお願いします」というご相談でした。複数の病気をお持ちで、状況が複雑に見えますが、<span class="highlight">一つずつ整理すれば必ず進めます</span>。</p>
+
+  <hr class="divider">
+
+  <h2>まず確認すること①　初診日はどの年金に加入していたか</h2>
+
+  <p>障害年金で最初に確認すべきは、<span class="highlight">初診日の時点でどの年金に加入していたか</span>です。</p>
+
+  <ul>
+    <li><strong>厚生年金（または共済年金）加入中</strong>→ 障害厚生年金（1〜3級）が対象</li>
+    <li><strong>国民年金加入中</strong>→ 障害基礎年金（1〜2級）が対象</li>
+  </ul>
+
+  <div class="info-box">
+    💡 今回のご相談者は、元公務員で共済年金（厚生年金に相当）に加入されていました。初診日が在職中であれば、障害厚生年金の2〜3級が狙えます。退職後に国民年金に変わっていても、初診日基準で判断されます。
+  </div>
+
+  <p>まずは「精神科に初めてかかった日（初診日）に、どの年金に加入していたか」を確認しましょう。わからない場合は年金事務所に問い合わせると教えてもらえます。</p>
+
+  <h2>まず確認すること②　傷病手当金の未請求期間に注意</h2>
+
+  <p>今回のご相談で、もう一つ重要なポイントがありました。<span class="highlight">傷病手当金の未請求期間</span>です。</p>
+
+  <div class="caution">
+    ⚠️ 傷病手当金には請求期限（2年以内）があります。期限を過ぎると一切受給できなくなります。障害年金の申請と並行して、早めに確認・請求することをおすすめします。まずは加入していた健康保険組合か、ハローワークに問い合わせてみてください。
+  </div>
+
+  <h2>次にすること：診断書の準備を始める</h2>
+
+  <p>障害年金の申請で<span class="highlight">一番大切なのは診断書</span>です。申立書（自分で書く書類）より、診断書の内容が審査に大きく影響します。</p>
+
+  <p>診断書をお願いするには、主治医に「日常生活でどのように困っているか」を具体的に伝える必要があります。</p>
+
+  <div class="point-box">
+    <div class="point-title">📝 主治医に伝えるべき7つの項目</div>
+    <ol>
+      <li>金銭管理や買い物ができるか</li>
+      <li>食事の準備・片付けができるか</li>
+      <li>通院や外出が一人でできるか</li>
+      <li>他の人との意思疎通ができるか</li>
+      <li>身辺の清潔保持ができるか（入浴・着替えなど）</li>
+      <li>社会性（社会のルールや日常のマナーが守れるか）</li>
+      <li>自発性（自分から行動を起こせるか）</li>
+    </ol>
+  </div>
+
+  <p>「できない項目が多いほど2級に近くなる」というのが基本的な考え方です。メモにまとめて主治医に渡すと、診断書に反映されやすくなります。</p>
+
+  <div class="consultation-box">
+    <div class="label">みのりからのアドバイス（実際の相談より）</div>
+    <p>「普段の状態をそのまま正直に伝えることが、結果的に診断書にも反映されやすいと思います。就労について触れる場合も、『実際にやってみたけれど継続が難しかった』など、ご自身の体調との関係で説明されると伝わりやすいかと思います。」</p>
+  </div>
+
+  <h2>申請の流れをざっくり把握しておく</h2>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>年金事務所で書類一式をもらう</h4>
+        <p>まず年金事務所に行き、障害年金の申請書類一式を受け取ります。わからないことはその場で聞けます。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>主治医に診断書を依頼する</h4>
+        <p>書類をもらってから主治医に依頼するのがベスト。書いていただくにも準備が必要なので、早めに動き始めることが大切です。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>病歴・就労状況等申立書を作成する</h4>
+        <p>自分で記入する書類です。発症から現在までの経緯と、日常生活の状況を書きます。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>書類をまとめて年金事務所へ提出</h4>
+        <p>診断書・申立書・その他必要書類をそろえて提出します。障害者手帳のコピーも参考資料として添付できます。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>審査結果を待つ（約3〜4ヶ月）</h4>
+        <p>提出後、審査結果が出るまで3〜4ヶ月ほどかかります。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>国民年金の法定免除について</h2>
+
+  <p>障害年金2級以上が認定されると、国民年金保険料の<span class="highlight">法定免除</span>が受けられます。</p>
+
+  <div class="info-box">
+    💡 法定免除のメリット・デメリット<br><br>
+    ✅ メリット：病状が固定している間は保険料を払わなくてよい<br>
+    ⚠️ デメリット：将来の老齢年金が減額される場合がある。病状が回復した場合はデメリットになるケースも<br><br>
+    詳細は年金事務所で確認されることをおすすめします。
+  </div>
+
+  <h2>知っておきたい：年金生活者支援給付金</h2>
+
+  <p>あまり知られていませんが、前年の収入が一定額（約479万円）以下の場合、障害年金に加えて<span class="highlight">年金生活者支援給付金（月額約5,620円）</span>も受給できる可能性があります。申請時に年金事務所で一緒に確認してみてください。</p>
+
+  <h2>医師・年金事務所に「お金に困っている」は言わなくていい</h2>
+
+  <p>最後に、これは意外と知らない方が多いポイントです。主治医や年金事務所に対して、「お金に困っているから申請したい」と伝える必要はありません。</p>
+
+  <p>障害年金は、<span class="highlight">病気や障害によって日常生活や就労が困難な状態であることを証明する制度</span>です。経済的な理由ではなく、「こういう状態で困っています」という事実を正直に伝えることが大切です。</p>
+
+  <hr class="divider">
+
+  <h2>まとめ</h2>
+
+  <div class="point-box">
+    <div class="point-title">✅ 申請前にやること チェックリスト</div>
+    <ul>
+      <li>初診日に加入していた年金の種類を確認した</li>
+      <li>傷病手当金の未請求がないか確認した（請求期限2年以内！）</li>
+      <li>主治医に伝える「できないこと」をメモにまとめた</li>
+      <li>年金事務所で申請書類一式をもらった</li>
+      <li>法定免除・年金生活者支援給付金についても確認した</li>
+    </ul>
+  </div>
+
+  <p>複数の病気を抱えていても、状況が複雑に見えても、一つずつ整理すれば必ず進めます。ご自身のペースで、焦らず進めてください。あなたの努力が、きっと実ります。</p>
+
+  <div class="blog-cta">
+    <h3>何から始めればいいか、一緒に整理します</h3>
+    <p>「自分の場合はどうすればいい？」「手帳3級でも受給できる？」そんな疑問はお気軽にご相談ください。</p>
+    <a href="https://coconala.com/users/5629202" class="btn-white" target="_blank" rel="noopener">ココナラで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p style="margin-bottom:8px">
+    <a href="https://mizuirobin0805-minori.github.io/minori-support/">トップへ戻る</a>
+  </p>
+  <p>© 2026 みのり - 自力で受給する障害年金申請サポート</p>
+</footer>
+
+</body>
+</html>
