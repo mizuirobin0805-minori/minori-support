@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みのり（あなたの努力が実りますように）- 障害年金申請サポート</title>
+<style>
+  :root {
+    --green: #4a7c59;
+    --green-light: #6a9c79;
+    --green-pale: #e8f4ec;
+    --gold: #c9a84c;
+    --text: #333;
+    --text-light: #666;
+    --white: #fff;
+    --bg: #fafaf8;
+    --radius: 12px;
+    --shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== HEADER / NAV ===== */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid #e0e0d8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 20px;
+  }
+
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    gap: 12px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+
+  .nav-logo .icon {
+    width: 36px;
+    height: 36px;
+    background: var(--green);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 13px;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+
+  nav a:hover { color: var(--green); text-decoration: none; }
+
+  .nav-cta {
+    background: var(--green);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--green-light); text-decoration: none !important; }
+
+  /* hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    border-top: 1px solid #eee;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 15px; color: var(--text); padding: 4px 0; border-bottom: 1px solid #f0f0f0; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu .nav-cta { text-align: center; color: white !important; border: none; padding: 10px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #e8f4ec 0%, #f5f0e8 100%);
+    padding: 60px 20px;
+  }
+
+  .hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-text h1 {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 28px;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--green-light); text-decoration: none; }
+
+  .btn-secondary {
+    background: white;
+    color: var(--green);
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--green);
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { background: var(--green-pale); text-decoration: none; }
+
+  .hero-image {
+    flex-shrink: 0;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: var(--shadow);
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 64px 20px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+
+  section h2 {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .section-lead {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-size: 15px;
+  }
+
+  /* ===== ABOUT ===== */
+  #about { background: white; }
+
+  .about-box {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .about-box img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid white;
+  }
+
+  .about-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--green);
+  }
+
+  .about-text p { font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 16px; }
+
+  .badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .badge {
+    background: var(--green);
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* flow */
+  .flow-box {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+
+  .flow-box p { font-size: 15px; margin-bottom: 12px; }
+
+  .flow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .flow-link:hover { background: var(--green-light); text-decoration: none; }
+
+  /* stats */
+  .stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    flex: 1;
+    min-width: 140px;
+    background: var(--green);
+    color: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-card .num { font-size: 28px; font-weight: 700; }
+  .stat-card .label { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+
+  /* ===== SERVICES ===== */
+  #comparison { background: var(--bg); }
+
+  /* Desktop table */
+  .service-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .service-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    min-width: 600px;
+  }
+
+  .service-table th, .service-table td {
+    padding: 14px 16px;
+    text-align: center;
+    border: 1px solid #e8e8e0;
+    font-size: 14px;
+  }
+
+  .service-table th {
+    background: var(--green);
+    color: white;
+    font-weight: 600;
+  }
+
+  .service-table th:first-child { background: #5a6e60; }
+  .service-table td:first-child { background: #f9faf7; font-weight: 600; font-size: 13px; color: var(--text-light); text-align: left; }
+  .service-table tr:nth-child(even) td { background: #f9faf7; }
+  .service-table tr:nth-child(even) td:first-child { background: #f2f4f0; }
+
+  .service-table .price { font-size: 18px; font-weight: 700; color: var(--green); }
+
+  .btn-table {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .btn-table:hover { background: var(--green-light); text-decoration: none; }
+
+  /* Mobile service cards */
+  .service-cards {
+    display: none;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .service-card-header {
+    background: var(--green);
+    color: white;
+    padding: 16px 20px;
+  }
+
+  .service-card-header h3 { font-size: 16px; font-weight: 700; }
+  .service-card-header .card-price { font-size: 22px; font-weight: 700; margin-top: 4px; }
+
+  .service-card-body { padding: 16px 20px; }
+
+  .service-card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0ea;
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  .service-card-row:last-child { border-bottom: none; }
+  .service-card-row .row-label { color: var(--text-light); flex-shrink: 0; min-width: 80px; }
+  .service-card-row .row-value { text-align: right; color: var(--text); }
+
+  .recommend-list { text-align: left; }
+  .recommend-list li { list-style: none; padding: 2px 0; }
+  .recommend-list li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+
+  .service-card-footer { padding: 0 20px 20px; }
+  .btn-card {
+    display: block;
+    text-align: center;
+    background: var(--green);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .btn-card:hover { background: var(--green-light); text-decoration: none; }
+
+  /* ===== TESTIMONIALS ===== */
+  #testimonials { background: white; }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 20px;
+    border-left: 4px solid var(--green);
+  }
+
+  .testimonial-card .person {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+
+  .testimonial-card .tag {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+
+  .testimonial-card p { font-size: 14px; line-height: 1.7; color: var(--text); }
+  .testimonial-card .period { font-size: 12px; color: var(--text-light); margin-top: 10px; }
+
+  /* reasons */
+  .reasons { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
+
+  .reason-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid #e0e8e2;
+  }
+
+  .reason-card .check { font-size: 20px; margin-bottom: 8px; }
+  .reason-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--green); }
+  .reason-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* ===== FAQ ===== */
+  #faq { background: var(--bg); }
+
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 18px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .faq-q .q-label {
+    background: var(--green);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .faq-q .arrow {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-light);
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .arrow { transform: rotate(180deg); }
+
+  .faq-a {
+    display: none;
+    padding: 0 20px 18px 54px;
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  /* ===== BLOG ===== */
+  #blog { background: white; }
+
+  .blog-card {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+
+  .blog-tag {
+    background: var(--green);
+    color: white;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .blog-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .blog-card p { font-size: 13px; color: var(--text-light); }
+
+  .blog-card a.read-link {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: var(--green);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .blog-card a.read-link:hover { background: var(--green-light); text-decoration: none; }
+
+  .blog-more { text-align: center; margin-top: 16px; }
+  .btn-outline {
+    display: inline-block;
+    border: 2px solid var(--green);
+    color: var(--green);
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .btn-outline:hover { background: var(--green-pale); text-decoration: none; }
+
+  /* ===== CASE STUDIES ===== */
+  #case-studies { background: var(--bg); }
+
+  .case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+
+  .case-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .case-tag {
+    background: var(--gold);
+    color: white;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .case-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .case-card p { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 12px; }
+  .case-result { font-size: 13px; color: var(--green); font-weight: 600; }
+  .case-result::before { content: "✓ "; }
+
+  .case-more { text-align: center; margin-top: 24px; }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section {
+    background: var(--green);
+    color: white;
+    padding: 64px 20px;
+    text-align: center;
+  }
+
+  .cta-section h2 { font-size: clamp(18px, 3vw, 26px); font-weight: 700; margin-bottom: 12px; color: white; }
+  .cta-section p { font-size: 15px; opacity: 0.9; margin-bottom: 28px; }
+
+  .btn-white {
+    display: inline-block;
+    background: white;
+    color: var(--green);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .btn-white:hover { background: var(--green-pale); text-decoration: none; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #2d3b32;
+    color: #ccc;
+    padding: 40px 20px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand .icon {
+    width: 40px;
+    height: 40px;
+    background: var(--green);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .footer-brand p { font-size: 13px; line-height: 1.6; max-width: 240px; }
+
+  .footer-menu h4 { color: white; font-size: 14px; margin-bottom: 12px; }
+  .footer-menu ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-menu ul a { color: #bbb; font-size: 13px; }
+  .footer-menu ul a:hover { color: white; text-decoration: none; }
+
+  .footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .footer-bottom a { color: #888; }
+  .footer-bottom a:hover { color: #ccc; text-decoration: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 700px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+
+    .hero-inner { flex-direction: column-reverse; text-align: center; gap: 24px; }
+    .hero-buttons { justify-content: center; }
+    .hero-image { width: 200px; height: 200px; }
+
+    .about-box { flex-direction: column; align-items: center; text-align: center; }
+    .about-box img { width: 150px; height: 150px; }
+    .badges { justify-content: center; }
+
+    /* Show mobile cards instead of table */
+    .service-table-wrap { display: none; }
+    .service-cards { display: flex; }
+
+    .blog-card { flex-direction: column; align-items: flex-start; }
+    .blog-card a.read-link { margin-left: 0; }
+
+    .stats { justify-content: center; }
+    .stat-card { min-width: 120px; flex: 0 1 140px; }
+
+    .footer-top { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 48px 16px; }
+    .hero { padding: 48px 16px; }
+    .faq-a { padding-left: 16px; }
+    .faq-q { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="icon">み</div>
+      <span>みのり（あなたの努力が実りますように）</span>
+    </div>
+    <nav>
+      <a href="#comparison">サービス</a>
+      <a href="#about">自己紹介</a>
+      <a href="#testimonials">実績</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://coconala.com/users/5629202" class="nav-cta" target="_blank" rel="noopener">相談する</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#comparison" onclick="toggleMenu()">ご依頼受付中サービス</a>
+    <a href="#about" onclick="toggleMenu()">自己紹介</a>
+    <a href="#testimonials" onclick="toggleMenu()">実績</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="https://coconala.com/users/5629202" class="nav-cta" target="_blank" rel="noopener">相談する</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>社労士に頼らず、自分の力で<br>障害年金を受給しませんか？</h1>
+      <p>精神障害年金2級を自力で受給した経験者が、あなたの申請をサポートします。<br>複雑な書類作成も、不安な気持ちも、一緒に乗り越えましょう。</p>
+      <div class="hero-buttons">
+        <a href="https://coconala.com/users/5629202" class="btn-primary" target="_blank" rel="noopener">相談してみる</a>
+        <a href="#flow" class="btn-secondary">詳しく知る</a>
+      </div>
+    </div>
+    <img class="hero-image"
+      src="data:image/jpeg;base64,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"
+      alt="みのり">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <h2>みのり（あなたの努力が実りますように）</h2>
+
+    <div class="about-box">
+      <img src="data:image/jpeg;base64,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" alt="みのり">
+      <div class="about-text">
+        <h3>こんにちは、みのりです。</h3>
+        <p>「あなたの努力が実りますよう」という願いを込めて、このお名前をいただいています。</p>
+        <p>私は精神障害年金2級を、社労士に頼らず自力で受給することができました。その過程で、書類作成の難しさ、不安な気持ち、何度も挫けそうになったことを経験しています。</p>
+        <p>だからこそ、同じ立場の方々の気持ちに寄り添い、「自分の力で申請を進めたい」という想いをサポートできるのです。</p>
+        <div class="badges">
+          <span class="badge">精神障害年金2級 自力受給経験者</span>
+          <span class="badge">ココナラ実績15件</span>
+          <span class="badge">評価5.0</span>
+          <span class="badge">いつでもメッセージ対応</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="flow" style="margin-top: 48px; margin-bottom: 16px;">申請から受給までの流れ</h2>
+    <div class="flow-box">
+      <p>申請してから結果通知まで、約2か月7日から4か月の期間がかかります。こちらのリンクは日本年金機構のPDFです。</p>
+      <a href="https://www.nenkin.go.jp/service/pamphlet/kyufu.files/LK03-2.pdf" class="flow-link" target="_blank" rel="noopener">
+        📄 日本年金機構の申請ガイドを見る（PDF）
+      </a>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card"><div class="num">100%</div><div class="label">満足度</div></div>
+      <div class="stat-card"><div class="num">5.0</div><div class="label">評価スコア</div></div>
+      <div class="stat-card"><div class="num">2級</div><div class="label">精神障害等級</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="comparison">
+  <div class="section-inner">
+    <h2>ご依頼受付中サービス</h2>
+    <p class="section-lead">あなたのニーズに合わせて、最適なサービスを選んでください。</p>
+
+    <!-- Desktop Table -->
+    <div class="service-table-wrap">
+      <table class="service-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>病歴・就労申立書サンプル</th>
+            <th>相談・アドバイス</th>
+            <th>診断書チェック</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>料金</td>
+            <td><span class="price">¥1,000</span></td>
+            <td><span class="price">¥1,500</span></td>
+            <td><span class="price">¥1,000</span></td>
+          </tr>
+          <tr>
+            <td>対象者</td>
+            <td>申立て作成にご不安がある方や先に知っておきたいとお考えの方</td>
+            <td>申請全般について相談したい方</td>
+            <td>診断書の内容にご不安がある方や先に知っておきたいとお考えの方</td>
+          </tr>
+          <tr>
+            <td>内容</td>
+            <td>実例のご提供と申立書について7往復までのご質問</td>
+            <td>メッセージ相談</td>
+            <td>チェック＋アドバイス</td>
+          </tr>
+          <tr>
+            <td>質問対応</td>
+            <td>7往復まで</td>
+            <td>何度でも可能</td>
+            <td>7往復まで</td>
+          </tr>
+          <tr>
+            <td>納期</td>
+            <td>1～2日</td>
+            <td>1～2日</td>
+            <td>1～2日</td>
+          </tr>
+          <tr>
+            <td>こんな方にオススメ</td>
+            <td>✓ 実例を参考にしたい<br>✓ 自分で作成したい</td>
+            <td>✓ 何から始めたらいいか分からない<br>✓ 寄り添ってもらいながら相談したい</td>
+            <td>✓ 通りやすい診断書を知りたい<br>✓ 医師への伝え方が分からない</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://coconala.com/services/3977342?ref=profile_top_service" class="btn-table" target="_blank" rel="noopener">ココナラで依頼する</a></td>
+            <td><a href="https://coconala.com/services/3967481?ref=profile_top_service" class="btn-table" target="_blank" rel="noopener">ココナラで依頼する</a></td>
+            <td><a href="https://coconala.com/services/3977392?ref=profile_top_service" class="btn-table" target="_blank" rel="noopener">ココナラで依頼する</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile Cards -->
+    <div class="service-cards">
+
+      <div class="service-card">
+        <div class="service-card-header">
+          <h3>病歴・就労申立書サンプル</h3>
+          <div class="card-price">¥1,000</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-row">
+            <span class="row-label">対象者</span>
+            <span class="row-value">申立て作成にご不安がある方</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">内容</span>
+            <span class="row-value">実例のご提供＋7往復までQ&A</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">質問対応</span>
+            <span class="row-value">7往復まで</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">納期</span>
+            <span class="row-value">1～2日</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">オススメ</span>
+            <span class="row-value">
+              <ul class="recommend-list">
+                <li>実例を参考にしたい</li>
+                <li>自分で作成したい</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="service-card-footer">
+          <a href="https://coconala.com/services/3977342?ref=profile_top_service" class="btn-card" target="_blank" rel="noopener">ココナラで依頼する</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-header">
+          <h3>相談・アドバイス</h3>
+          <div class="card-price">¥1,500</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-row">
+            <span class="row-label">対象者</span>
+            <span class="row-value">申請全般について相談したい方</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">内容</span>
+            <span class="row-value">メッセージ相談</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">質問対応</span>
+            <span class="row-value">何度でも可能</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">納期</span>
+            <span class="row-value">1～2日</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">オススメ</span>
+            <span class="row-value">
+              <ul class="recommend-list">
+                <li>何から始めたらいいか分からない</li>
+                <li>寄り添ってもらいながら相談したい</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="service-card-footer">
+          <a href="https://coconala.com/services/3967481?ref=profile_top_service" class="btn-card" target="_blank" rel="noopener">ココナラで依頼する</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-header">
+          <h3>診断書チェック</h3>
+          <div class="card-price">¥1,000</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-row">
+            <span class="row-label">対象者</span>
+            <span class="row-value">診断書の内容にご不安がある方</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">内容</span>
+            <span class="row-value">チェック＋アドバイス</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">質問対応</span>
+            <span class="row-value">7往復まで</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">納期</span>
+            <span class="row-value">1～2日</span>
+          </div>
+          <div class="service-card-row">
+            <span class="row-label">オススメ</span>
+            <span class="row-value">
+              <ul class="recommend-list">
+                <li>通りやすい診断書を知りたい</li>
+                <li>医師への伝え方が分からない</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="service-card-footer">
+          <a href="https://coconala.com/services/3977392?ref=profile_top_service" class="btn-card" target="_blank" rel="noopener">ココナラで依頼する</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <h2>ご依頼者様からの声</h2>
+    <p class="section-lead">みのりのサポートを受けて、障害年金の受給に成功した方々の声をご紹介します。</p>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="person">Aさん</div>
+        <div class="tag">30代 女性 / 精神障害年金2級受給</div>
+        <p>「社労士に頼むお金がなくて、どうしようかと悩んでいました。でもみのりさんのアドバイスは本当に丁寧で、難しい書類も一つ一つ丁寧に説明してくれました。おかげで無事受給できました。本当にありがとうございました。」</p>
+        <div class="period">📅 申請から受給まで：約3ヶ月</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="person">Bさん</div>
+        <div class="tag">40代 男性 / 精神障害年金2級受給</div>
+        <p>「複雑な書類が理解できず困っていましたが、みのりさんが同じ目線で説明してくれたので、自分で進めることができました。何度も質問してしまいましたが、いつも丁寧に答えてくれて、本当に心強かったです。ありがとうございました。」</p>
+        <div class="period">📅 申請から受給まで：約4ヶ月</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="person">Cさん</div>
+        <div class="tag">50代 女性 / 精神障害年金2級受給</div>
+        <p>「初めての申請で不安だらけでしたが、みのりさんのサンプルを見て、どう書けばいいのか理解できました。ありがとうございました。」</p>
+        <div class="period">📅 申請から受給まで：約2か月</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="person">Dさん</div>
+        <div class="tag">35代 男性 / 精神障害年金2級受給</div>
+        <p>「診断書のチェックをしてもらい、不備を指摘してもらえたので、安心して申請できました。本当に助かりました。」</p>
+        <div class="period">📅 申請から受給まで：約2か月</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="person">Eさん</div>
+        <div class="tag">45代 女性 / 精神障害年金2級受給</div>
+        <p>「メッセージの返信が早く、いつも親身に相談に乗ってくれました。みのりさんのおかげで受給できました。」</p>
+        <div class="period">📅 申請から受給まで：約2か月</div>
+      </div>
+    </div>
+
+    <div class="reasons">
+      <div class="reason-card">
+        <div class="check">✓</div>
+        <h4>実体験に基づくアドバイス</h4>
+        <p>社労士ではなく、実際に自力で受給した経験者だからこそ、同じ目線でサポートできます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="check">✓</div>
+        <h4>圧倒的な低価格</h4>
+        <p>社労士に比べて格段に安い料金で、丁寧なサポートが受けられます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="check">✓</div>
+        <h4>迅速で親身な対応</h4>
+        <p>メッセージはいつでも受け付け、必ず返信します。小さなことでも大丈夫です。</p>
+      </div>
+      <div class="reason-card">
+        <div class="check">✓</div>
+        <h4>完全な透明性</h4>
+        <p>実際の申立書サンプルを公開し、隠すことなく情報をシェアしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <h2>よくある質問</h2>
+    <p class="section-lead">申請に関するよくある質問と、その回答をまとめました。</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-label">Q</span>
+          申請から受給までどのくらい時間がかかりますか？
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          一般的には、申請から審査結果が出るまで3～4ヶ月程度かかります。ただし、書類の不備がある場合は時間がかかることもあります。みのりのサポートを受けた方の平均は3～4ヶ月で、多くの方が初回申請で受給できています。申請内容によって異なりますので、詳しくはお気軽にご相談ください。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-label">Q</span>
+          診断書がない場合や、医師との関係が悪い場合はどうしたらいいですか？
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          診断書は申請に必須ですが、医師との関係が難しい場合でも対応方法があります。例えば、別の医療機関で診断書を取得することも可能です。また、医師に「障害年金の申請に必要な診断書が欲しい」と明確に伝えることが重要です。具体的な対応方法については、みのりがアドバイスできますので、まずはご相談ください。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-label">Q</span>
+          初回申請で不支給になった場合、再申請はできますか？
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          はい、再申請は可能です。実は、初回申請で不支給になった方の中には、申立書の書き方や診断書の内容に改善の余地があるケースが多くあります。不支給通知書を受け取ったら、その理由を分析し、改善点を加えて再申請することで、2回目の申請で受給できる可能性があります。不支給になった理由の分析と改善策については、みのりがサポートできますので、ぜひご相談ください。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-inner">
+    <h2>ブログ</h2>
+    <p class="section-lead">障害年金申請に関するコツ、よくある質問、成功事例などを紹介しています。</p>
+
+    <div class="blog-card">
+      <span class="blog-tag">申立書</span>
+      <div>
+        <h3>障害年金申請のコツ〜認定されやすい申立書の書き方〜</h3>
+        <p>精神障害年金2級を自力で受給した経験から、審査官に伝わりやすい申立書の書き方をお教えします。</p>
+      </div>
+      <a href="https://minorisupprt-wtsg5rqp.manus.space/blog/1" class="read-link">記事を読む</a>
+    </div>
+
+    <div class="blog-more">
+      <a href="https://minorisupprt-wtsg5rqp.manus.space/blog" class="btn-outline">ブログをもっと見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="case-studies">
+  <div class="section-inner">
+    <h2>成功事例</h2>
+    <p class="section-lead">みのりのサポートを受けて、障害年金の受給に成功した方々の事例を紹介します。</p>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">初回申請成功</span>
+        <h3>Aさん（30代女性・うつ病）</h3>
+        <p>初回申請で2級認定を獲得。申立書に具体的な症状を記載することで、3ヶ月で認定されました。</p>
+        <div class="case-result">3ヶ月で2級認定</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">再申請成功</span>
+        <h3>Bさん（40代男性・双極性障害）</h3>
+        <p>初回不支給から再申請で認定。診断書の不備を修正し、申立書を充実させることで成功しました。</p>
+        <div class="case-result">2級認定で年間831,700円の受給決定</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">医師変更対応</span>
+        <h3>Cさん（50代女性・統合失調症）</h3>
+        <p>医師の変更が必要だったケース。新しい医師との関係を築き、5ヶ月で認定されました。</p>
+        <div class="case-result">医師変更後2級認定</div>
+      </div>
+    </div>
+
+    <div class="case-more">
+      <a href="https://minorisupprt-wtsg5rqp.manus.space/case-studies" class="btn-outline">すべての成功事例を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>話だけ聞いて欲しいよ、話し相手が欲しい、の方も</h2>
+  <p>いつでも「こんにちは」とお気軽にメッセージくださいね。</p>
+  <a href="https://coconala.com/users/5629202" class="btn-white" target="_blank" rel="noopener">今すぐ相談する</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="icon">み</div>
+        <p>みのり<br>自力で受給する障害年金申請サポート</p>
+      </div>
+      <div class="footer-menu">
+        <h4>メニュー</h4>
+        <ul>
+          <li><a href="#comparison">サービス</a></li>
+          <li><a href="#about">自己紹介</a></li>
+          <li><a href="#testimonials">実績</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://minorisupprt-wtsg5rqp.manus.space/blog">ブログ</a></li>
+          <li><a href="https://minorisupprt-wtsg5rqp.manus.space/case-studies">成功事例</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 みのり - 自力で受給する障害年金申請サポート</span>
+      <span>
+        <a href="https://minorisupprt-wtsg5rqp.manus.space/privacy-policy">プライバシーポリシー</a>
+        ｜
+        <a href="https://minorisupprt-wtsg5rqp.manus.space/disclaimer">免責事項</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
