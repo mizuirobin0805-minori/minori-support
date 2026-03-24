@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主治医への伝え方〜診断書をお願いする前にすべきこと〜 | みのり 障害年金申請サポート</title>
+<meta name="description" content="障害年金の申請で一番大切なのは診断書。でも主治医にうまく伝えられない…そんな方へ、実際の相談事例をもとに「主治医への伝え方」を詳しく解説します。">
+<style>
+  :root {
+    --green: #4a7c59;
+    --green-light: #6a9c79;
+    --green-pale: #e8f4ec;
+    --text: #333;
+    --text-light: #666;
+    --bg: #fafaf8;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HEADER */
+  header {
+    background: white;
+    border-bottom: 1px solid #e0e0d8;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    gap: 12px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .nav-logo .icon {
+    width: 32px;
+    height: 32px;
+    background: var(--green);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .nav-back {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--green);
+  }
+
+  /* HERO */
+  .blog-hero {
+    background: linear-gradient(135deg, #e8f4ec 0%, #f5f0e8 100%);
+    padding: 48px 20px 40px;
+  }
+
+  .blog-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .blog-category {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .blog-hero h1 {
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .blog-meta {
+    font-size: 13px;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* CONTENT */
+  .blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 20px;
+  }
+
+  .blog-content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 40px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid var(--green);
+  }
+
+  .blog-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 28px 0 12px;
+  }
+
+  .blog-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .blog-content ul, .blog-content ol {
+    margin: 0 0 20px 24px;
+  }
+
+  .blog-content li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* 吹き出し風の相談ボックス */
+  .consultation-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 24px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--green);
+  }
+
+  .consultation-box .label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .consultation-box p {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 0;
+    line-height: 1.8;
+  }
+
+  /* ポイントボックス */
+  .point-box {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 28px 0;
+  }
+
+  .point-box .point-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-box ul {
+    margin: 0 0 0 20px;
+  }
+
+  .point-box li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+
+  /* 強調 */
+  .highlight {
+    background: linear-gradient(transparent 60%, #ffd70080 60%);
+    font-weight: 700;
+  }
+
+  /* 注意書き */
+  .caution {
+    background: #fff8e6;
+    border: 1px solid #f0c040;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #7a5c00;
+  }
+
+  /* CTA */
+  .blog-cta {
+    background: var(--green);
+    color: white;
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 0;
+  }
+
+  .blog-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .blog-cta p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
+
+  .btn-white {
+    display: inline-block;
+    background: white;
+    color: var(--green);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .btn-white:hover { opacity: 0.9; text-decoration: none; }
+
+  /* FOOTER */
+  footer {
+    background: #2d3b32;
+    color: #ccc;
+    padding: 32px 20px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 64px;
+  }
+
+  footer a { color: #aaa; }
+
+  /* 区切り */
+  .divider {
+    border: none;
+    border-top: 1px solid #e8e8e0;
+    margin: 40px 0;
+  }
+
+  @media (max-width: 600px) {
+    .blog-content { padding: 32px 16px; }
+    .blog-hero { padding: 32px 16px; }
+    .blog-content h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="icon">み</div>
+      <span>みのり 障害年金申請サポート</span>
+    </div>
+    <a href="https://mizuirobin0805-minori.github.io/minori-support/" class="nav-back">← トップへ戻る</a>
+  </div>
+</header>
+
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="blog-category">主治医との関係</span>
+    <h1>主治医への伝え方〜<br>診断書をお願いする前にすべきこと〜</h1>
+    <div class="blog-meta">
+      <span>📅 2026年3月</span>
+      <span>✍️ みのり</span>
+      <span>⏱️ 読了目安：5分</span>
+    </div>
+  </div>
+</div>
+
+<div class="blog-content">
+
+  <p>障害年金の申請で、<span class="highlight">一番大切なのは診断書</span>です。どれだけ丁寧に申立書を書いても、診断書の内容が実際の症状と合っていなければ、認定されないこともあります。</p>
+
+  <p>でも、主治医にうまく症状を伝えられない…という方はとても多いです。今回は、実際のご相談内容をもとに「診断書をお願いする前にすべきこと」をお伝えします。</p>
+
+  <hr class="divider">
+
+  <h2>よくあるご相談：主治医に本当のことが言えない</h2>
+
+  <p>ある依頼者さんから、こんなお話をいただきました。</p>
+
+  <div class="consultation-box">
+    <div class="label">相談内容</div>
+    <p>「主治医の前では、少しでもよく見せようとしてしまいます。自分でも、今まで出来ていたことが出来なくなる苦しみや不安を、かきけそうとしていたんだと思います。家に帰ってシャワーを浴びながら、誰にもわからないよう泣いた日々でした」</p>
+  </div>
+
+  <p>これは、とても多くの方が経験されていることです。診察室では「大丈夫です」と言ってしまう。でも家に帰ると涙が止まらない。その<span class="highlight">ギャップが、診断書に反映されない原因</span>になってしまいます。</p>
+
+  <h2>なぜ主治医に正直に話せないのか</h2>
+
+  <p>理由は主に3つあります。</p>
+
+  <ol>
+    <li><strong>「早く治りたい」という気持ちが強く、弱みを見せたくない</strong><br>減薬してほしい、回復していると思われたい、という気持ちから、つい症状を小さく言ってしまいます。</li>
+    <li><strong>「迷惑をかけたくない」という遠慮</strong><br>先生は忙しそう、こんなことを言ったら嫌われるかも、という不安があります。</li>
+    <li><strong>診察室では症状が和らぐことがある</strong><br>通院のために頑張って外出できても、普段はそうじゃない。でも先生から見ると「今日は元気そうですね」と映ってしまう。</li>
+  </ol>
+
+  <div class="consultation-box">
+    <div class="label">依頼者さんの言葉</div>
+    <p>「通院時は何とかお風呂に入れるけど、普段はそうじゃない。障害に理解のある人には何とか話せても、そうでないと話すことさえできない」</p>
+  </div>
+
+  <p>この言葉は、審査官に伝えるべき「日常の実態」そのものです。</p>
+
+  <h2>診断書をお願いする前にすべきこと</h2>
+
+  <h3>①「過去の困っていたこと」を書き出す</h3>
+
+  <p>主治医に伝えていなかったことを、まずメモにまとめましょう。診察時間は短いので、その場で全部話そうとするのは難しいです。<span class="highlight">メモを渡す形</span>にすると、話せなくても伝えられます。</p>
+
+  <div class="point-box">
+    <div class="point-title">📝 メモに書くといい内容</div>
+    <ul>
+      <li>お風呂に入れない日が何日続いたか</li>
+      <li>外出できなかった期間</li>
+      <li>夜眠れない・朝起きられない状態</li>
+      <li>誰かと話すことができなかった場面</li>
+      <li>仕事や家事ができなかった具体的なエピソード</li>
+    </ul>
+  </div>
+
+  <h3>②一度で全部話そうとしない</h3>
+
+  <p>通院が月2回の場合、いきなり診断書のお願いをするより、<span class="highlight">2〜3回に分けて少しずつ伝えていく</span>ことをおすすめします。</p>
+
+  <p>まず1回目は「実は困っていることをお伝えしたくて」と話し始める。2回目でさらに具体的なエピソードを追加する。そして3回目で「障害年金の診断書をお願いできますか」と伝える。この流れが、主治医に「この患者さんは本当に大変なんだ」と理解してもらいやすい方法です。</p>
+
+  <h3>③「主治医を味方につける」という意識で</h3>
+
+  <p>障害年金の審査は、東京で行われ、年金事務所の方と精神科の専門医が診断書をもとに判断します。つまり、<span class="highlight">診断書を書いてくれる主治医が、あなたの一番の味方</span>になります。</p>
+
+  <p>「迷惑をかけたくない」という遠慮はよくわかります。でも、あなたの日常の苦しさを正確に伝えることは、主治医にとっても大切な情報です。遠慮せず、少しずつ話してみてください。</p>
+
+  <hr class="divider">
+
+  <h2>アルバイト経験があっても隠さなくていい</h2>
+
+  <p>このご相談では、「一定期間アルバイトをした」という経歴について、年金事務所から「ふせてください」と言われた、というエピソードもありました。</p>
+
+  <div class="caution">
+    ⚠️ ただし、みのりの考えでは、変に隠すことはおすすめしません。「社会とのつながりが欲しくてテスト的に働いてみたけど、私にはまだ無理だとわかった」という事実は、むしろあなたの状態を正直に表しています。正直に伝えることで、自信をもって申請できます。
+  </div>
+
+  <h2>まとめ</h2>
+
+  <div class="point-box">
+    <div class="point-title">✅ 診断書をお願いする前のチェックリスト</div>
+    <ul>
+      <li>主治医に伝えていなかった日常の困りごとをメモにまとめた</li>
+      <li>通院時の様子と普段の様子のギャップを言葉にした</li>
+      <li>2〜3回に分けて、少しずつ伝える計画を立てた</li>
+      <li>「主治医を味方につける」気持ちで臨む準備ができた</li>
+    </ul>
+  </div>
+
+  <p>障害年金の制度は逃げません。焦らず、丁寧に、主治医との信頼関係を築きながら進めていきましょう。あなたの努力が、きっと実ります。</p>
+
+  <div class="blog-cta">
+    <h3>主治医への伝え方、一緒に考えます</h3>
+    <p>「何をどう伝えればいいかわからない」「診断書の内容が不安」そんな方はお気軽にご相談ください。</p>
+    <a href="https://coconala.com/users/5629202" class="btn-white" target="_blank" rel="noopener">ココナラで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p style="margin-bottom:8px">
+    <a href="https://mizuirobin0805-minori.github.io/minori-support/">トップへ戻る</a>
+  </p>
+  <p>© 2026 みのり - 自力で受給する障害年金申請サポート</p>
+</footer>
+
+</body>
+</html>
